@@ -53,7 +53,7 @@ int main()
         if (flag_f_r)
         {
             alarme = add_alarm_in_ms(500, alarme_callback, NULL, false);
-            if (!alarm)
+            if (!alarme)
             {
                 printf("Failed to add timer\n");
             }
