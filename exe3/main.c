@@ -22,9 +22,8 @@ void btn_callback(uint gpio, uint32_t events)
         {
             flag_f_r = 1;
         }
-    }  
+    }
 
-    
     else if (events == 0x8)
     { // rise edge
         if (gpio == BTN_PIN_R)
@@ -54,6 +53,10 @@ int main()
         if (flag_f_r)
         {
             alarme = add_alarm_in_ms(500, alarme_callback, NULL, false);
+            if (!alarm)
+            {
+                printf("Failed to add timer\n");
+            }
             if (alarme_disparado)
             {
                 alarme_disparado = 0;
